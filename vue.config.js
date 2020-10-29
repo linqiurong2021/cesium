@@ -1,35 +1,3 @@
-# cesium
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-# Cesium 配置
-
-在根目录新建 vue.config.js
-
-
-```js
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
@@ -48,7 +16,7 @@ module.exports = {
   devServer: {
     open: process.platform === "darwin",
     host: "0.0.0.0",
-    port: 5000,
+    port: 8080,
     https: false,
     hotOnly: false
   },
@@ -81,12 +49,3 @@ module.exports = {
     }
   }
 };
-
-```
-
-# Cesium 使用
-
-```js
-import * as Cesium from "cesium/Cesium";
-import * as widget from "cesium/Widgets/widgets.css";
-```
