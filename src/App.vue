@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <component :is="componentName" />
+    <AirpaneFly />
   </div>
 </template>
 
@@ -8,13 +8,8 @@
 export default {
   name: 'App',
   components: {
-    'Map': ()=> import('./components/Map')
-  },
-
-  data(){
-    return {
-      componentName: 'Map'
-    }
+    'Map': ()=> import('./components/Map'),
+    'AirpaneFly': ()=> import('./components/AirpaneFly')
   }
 }
 </script>
