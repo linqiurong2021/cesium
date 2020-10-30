@@ -9,6 +9,7 @@
 
 <script>
 import * as Cesium from "cesium/Cesium";
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiYWVmNTE1Zi02ZmYwLTQ4YjktYmZmZi01NWM2ZjQ4YTkzZDQiLCJpZCI6Mjk4NzEsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTI4MTYyNTJ9.GzaornBtyu8pW9Z-VeFL0rkTqiBabE_2hvDu5HDqTCQ'
 import * as widget from "cesium/Widgets/widgets.css";
 export default {
   name: "CesiumScene",
