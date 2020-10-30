@@ -91,3 +91,5 @@ import * as Cesium from "cesium/Cesium";
 // 或  import { Viewer } from 'cesium/Cesium'
 import * as widget from "cesium/Widgets/widgets.css";
 ```
+
+[官方配置](https://github.com/CesiumGS/cesium-webpack-example#cesium-webpack-example)
