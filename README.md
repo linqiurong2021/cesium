@@ -88,5 +88,6 @@ module.exports = {
 
 ```js
 import * as Cesium from "cesium/Cesium";
+// 或  import { Viewer } from 'cesium/Cesium'
 import * as widget from "cesium/Widgets/widgets.css";
 ```
