@@ -11,13 +11,14 @@ export default {
     return {};
   },
   mounted() {
-    // this.loadChinaTianditu();
-    this.loadXmTdt()
+    this.loadChinaTianditu();
+    // this.loadXmTdt()
   },
   beforeDestroy() {},
   methods: {
     loadChinaTianditu() {
       let token = '4b350b4f343fa22cdb2047e93b4d8712'
+      const imageryViewModels = this.gettBaseLayer()
       let viewerOption = {
         geocoder: false, // 地理位置查询定位控件
         homeButton: false, // 默认相机位置控件
@@ -25,7 +26,7 @@ export default {
         navigationHelpButton: false, // 默认的相机控制提示控件
         fullscreenButton: false, // 全屏控件
         scene3DOnly: true, // 每个几何实例仅以3D渲染以节省GPU内存
-        baseLayerPicker: false, // 底图切换控件
+        baseLayerPicker: true, // 底图切换控件
         animation: false, // 控制场景动画的播放速度控件
         // imageryProvider : new Cesium.WebMapTileServiceImageryProvider({
         //   url: "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk="+token,
@@ -34,14 +35,15 @@ export default {
         //   format: "image/jpeg",
         //   tileMatrixSetID: "GoogleMapsCompatible", // The identifier of the TileMatrixSet to use for WMTS requests.
         // })
-        imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
-          url: "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk="+token,
-          layer: "tdtBasicLayer",
-          style: "default",
-          format: "image/jpeg",
-          tileMatrixSetID: "GoogleMapsCompatible",
-          show: false
-        })
+        // imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
+        //   url: "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk="+token,
+        //   layer: "tdtBasicLayer",
+        //   style: "default",
+        //   format: "image/jpeg",
+        //   tileMatrixSetID: "GoogleMapsCompatible",
+        //   show: false
+        // }),
+        imageryProviderViewModels : imageryViewModels
       };
 
       // 全球矢量地图服务
@@ -89,6 +91,7 @@ export default {
       //   format: "image/jpeg",
       //   tileMatrixSetID: "GoogleMapsCompatible"
       // }));
+
     },
     loadXmTdt() {
       // 
@@ -99,7 +102,7 @@ export default {
         navigationHelpButton: false, // 默认的相机控制提示控件
         fullscreenButton: false, // 全屏控件
         scene3DOnly: true, // 每个几何实例仅以3D渲染以节省GPU内存
-        baseLayerPicker: false, // 底图切换控件
+        baseLayerPicker: true, // 底图切换控件
         animation: false, // 控制场景动画的播放速度控件
         // imageryProvider : new Cesium.WebMapTileServiceImageryProvider({
         //   url: "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk="+token,
@@ -124,6 +127,63 @@ export default {
       viewer.camera.flyTo({
         destination : Cesium.Cartesian3.fromDegrees(118, 24.48, 15000.0)
       })
+    },
+    // 修改底图
+    gettBaseLayer() {
+      let token = '4b350b4f343fa22cdb2047e93b4d8712'
+      var imageryViewModels = [];
+      imageryViewModels.push(new Cesium.ProviderViewModel({
+          name : '全国天地图影像',
+          iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/openStreetMap.png'),
+          tooltip : 'HelloWorlld',
+          creationFunction : function() {
+              return new Cesium.WebMapTileServiceImageryProvider({
+                  url : "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk="+token,
+
+                      layer: "tdtBasicLayer",
+                style: "default",
+                format: "image/jpeg",
+                tileMatrixSetID: "GoogleMapsCompatible",
+                show: false
+              });
+          }
+      }))
+
+       imageryViewModels.push(new Cesium.ProviderViewModel({
+          name : '全国天地图矢量',
+          iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/openStreetMap.png'),
+          tooltip : '全国天地图矢量',
+          creationFunction : function() {
+              return new Cesium.WebMapTileServiceImageryProvider({
+                  url : "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk="+token,
+                      layer: "tdtBasicLayer2",
+                style: "default",
+                format: "image/jpeg",
+                tileMatrixSetID: "GoogleMapsCompatible",
+                show: false
+              });
+          }
+      }))
+
+
+       imageryViewModels.push(new Cesium.ProviderViewModel({
+          name : '天地图*厦门',
+          iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/openStreetMap.png'),
+          tooltip : '天地图*厦门',
+          creationFunction : function() {
+              return new Cesium.ArcGisMapServerImageryProvider({
+                url: "http://222.76.242.138/arcgis/rest/services/HB/CGCS_DOMMAP/MapServer/WMTS?service=WMTS&request=GetTile&layer=HB_CGCS_DOMMAP&style=default&TileMatrix={TileMatrix}&tilerow={TileRow}&tilecoL={TileCol}",
+                layer: "tdtBasicLayer",
+                style: "default",
+                format: "image/jpeg",
+                tileMatrixSetID: "GoogleMapsCompatible",
+                show: false
+              });
+          }
+      }))
+
+      return imageryViewModels
+
     }
   }
 };
