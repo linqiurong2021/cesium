@@ -13,11 +13,14 @@ export default {
     'HeadPitchRoll': ()=> import('./components/tutorials/HeadPitchRoll'), // 航行
     'LocalToFixedFrame': ()=> import('./components/tutorials/LocalToFixedFrame'), // 定位
     'Split': ()=> import('./components/tutorials/Split'), // 分屏
+    'Fly': ()=> import('./components/tutorials/Fly'), // 飞
+    'Buildings': ()=> import('./components/tutorials/Buildings'), // 飞
+    'Demo': ()=> import('./components/Demo'), // 飞
   },
 
   data(){
     return {
-      componentName: 'Split'
+      componentName: 'Demo'
     }
   }
 }

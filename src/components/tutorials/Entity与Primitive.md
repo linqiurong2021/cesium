@@ -1,0 +1,20 @@
+# entity 和primitive 绘制对象
+
+1. entity偏向数据,primitive偏向图形.primitive更底层
+2. entity用法简单，primitive用法复杂。我们会有这样的疑问：entity已经封装的如此完美，调用如此便捷，为何还要primitive接口呢？区别就是加载效率。primitive更接近webgl底层，没有entity各种各样的附加属性，因此在加载时效率会更高。为了直观感受两者区别，我们分别用entity和primitive方式绘制3150个圆。
+
+# 使用primitive时，geometry和apperance是必不可少的！
+
+geometry定义了primitive的结构，即构成primitive的三角形、直线或点。apperance定义了primitive的着色，包括其完整的GLSL顶点和片段着色器以及渲染状态。这一点，看过一点webgl的朋友都会有基本的了解。
+
+为什么我们要在有entity的情况下选择使用primitive呢？
+
+a）、一个原因就是 性能，当加载大数据量的图形时，primitive展现出的高性能就不是entity可以比的上的了。
+
+在添加大数据量的图形时，我们可以在创建图元时，一次加载大数据量的geometry。
+
+如下，一次添加两个（在cesium官方示例中，有一次添加了几千上万个boxgeometry的案例）
+
+当我们一次添加多个geometry的时候，还可以对每个geometry进行单独的样式设置，即在构建geometryInstance的时候，添加attributes属性。
+
+b）、还有就是geometry我们可以自己定义一个新的图形，如网上的正四面体，这个图形在cesium里是不可以直接添加的，但是我们可以通过自己定义它的排列规则来进行生成。

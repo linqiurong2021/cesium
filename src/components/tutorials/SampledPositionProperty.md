@@ -1,0 +1,2 @@
+# SampledPositionProperty 控制模型沿轨迹运动
+利用Cesium的 SampledPositionProperty来动态控制模型的位置，达到模型沿轨迹平滑移动的目的
