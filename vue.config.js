@@ -18,7 +18,22 @@ module.exports = {
     host: "0.0.0.0",
     port: 8080,
     https: false,
-    hotOnly: false
+    hotOnly: false,
+    proxy: {
+      // '/arcgis': {
+      //   target: 'http://dev.eginsoft.cn:6080',
+      //   ws: true,
+      //   changeOrigin: true,
+      // },
+      '/dev_arcgis': {
+        target: 'http://dev.eginsoft.cn:6080',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/dev_arcgis': '/arcgis' // 重写rewrite
+        }
+      }
+    }
   },
   configureWebpack: {
     output: {

@@ -13,7 +13,9 @@ export default {
     'LoadTianditu': ()=> import('./demo/LoadTianditu'),
     'LoadBasemap': ()=> import('./demo/LoadBasemap'),
     'Basemap': ()=> import('./demo/Basemap'),
-    'Layers': ()=> import('./demo/Layers')
+    'Layers': ()=> import('./demo/Layers'),
+    'ArcgisMapServer': ()=> import('./demo/ArcgisMapServer'), // 加载MapServer下的所有图层
+    'ArcgisMapService': ()=> import('./demo/ArcgisMapService') // 可加载某个图层 需要WMS支持
   },
   data() {
     return {

@@ -13,6 +13,7 @@
 <script>
 import * as Cesium from "cesium/Cesium";
 import * as widget from "cesium/Widgets/widgets.css";
+import ImageProvider from '../ImageProvider.js'
 export default {
   name: "CesiumScene",
   data() {
@@ -116,11 +117,11 @@ export default {
     createProviderViewModel(item) {
       let layer = null
       switch(item.type) {
-        case 'WebMapTile' : layer = this.WebMapTileService(item) ;break;
-        case 'WebMapService' : layer = this.WebMapService(item) ; break;
-        case 'OpenStreet' : layer = this.OpenStreetMap(item) ;break;
-        case 'UrlTemplate' : layer = this.UrlTemplate(item) ;break;
-        case 'ArcGisMapServer' : layer = this.ArcGisMapServer(item) ; break;
+        case 'WebMapTile' : layer = ImageProvider.WebMapTileService(item) ;break;
+        case 'WebMapService' : layer = ImageProvider.WebMapService(item) ; break;
+        case 'OpenStreet' : layer = ImageProvider.OpenStreetMap(item) ;break;
+        case 'UrlTemplate' : layer = ImageProvider.UrlTemplate(item) ;break;
+        case 'ArcGisMapServer' : layer = ImageProvider.ArcGisMapServer(item) ; break;
       }
       const iconUrl = item.iconUrl!="" ? item.iconUrl : item.imgType == 'img' ? require('@/assets/images/img.png') : require('@/assets/images/vec.png');
       //
@@ -136,52 +137,7 @@ export default {
       // console.log(layer,'layer')
       return model
     },
-    // 创建arcgisMapServer
-    ArcGisMapServer(item) {
-      return new Cesium.ArcGisMapServerImageryProvider({
-        url: item.url,
-        layer: item.id,
-        style: "default",
-        format: "image/png",
-        tileMatrixSetID: "GoogleMapsCompatible",
-        show: false
-      });
-    },
-    WebMapTileService(item) {
-      return new Cesium.WebMapTileServiceImageryProvider({
-        url : item.url,
-        layer: item.id,
-        style: "default",
-        format: "image/png",
-        tileMatrixSetID: "GoogleMapsCompatible",
-        show: false
-      });
-    },
-    OpenStreetMap(item) {
-      return new Cesium.OpenStreetMapImageryProvider({
-        url: item.url,
-        layer: item.id,
-        style: "default",
-        format: "image/png",
-      });
-    },
-    // 高德
-    UrlTemplate(item) {
-      return new Cesium.UrlTemplateImageryProvider({
-        url: item.url,
-        layer: item.id,
-        style: "default",
-        format: "image/png",
-        tileMatrixSetID: "GoogleMapsCompatible",
-        show: false
-      })
-    },
-    WebMapService(item) {
-      return new Cesium.WebMapServiceImageryProvider({
-        url : item.url,
-        layers : item.layers,
-      });
-    },
+   
     changeBaseMap(item){
       console.log(item,'item')
     }
