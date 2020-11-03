@@ -10,11 +10,14 @@ export default {
     return {};
   },
   components: {
-    'LoadTianditu': ()=> import('./demo/LoadTianditu')
+    'LoadTianditu': ()=> import('./demo/LoadTianditu'),
+    'LoadBasemap': ()=> import('./demo/LoadBasemap'),
+    'Basemap': ()=> import('./demo/Basemap'),
+    'Layers': ()=> import('./demo/Layers')
   },
   data() {
     return {
-      componentName: 'LoadTianditu'
+      componentName: 'Layers'
     }
   },
 };
