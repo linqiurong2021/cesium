@@ -45,7 +45,8 @@
                   "ID": "70a0ed01d04e4a85a8aab20c4a6cc953",
                   "opacity": 1,
                   "LOAD_TYPE": "1",
-                  "EDIT_ATTRIBUTE": "1"
+                  "EDIT_ATTRIBUTE": "1",
+                  "SHOW_ALPHA": 0
                 }
               },
               {
@@ -85,7 +86,8 @@
                   "ID": "9612b2787c024c9e86a8c342577c5fb3",
                   "opacity": 1,
                   "LOAD_TYPE": "1",
-                  "EDIT_ATTRIBUTE": "0"
+                  "EDIT_ATTRIBUTE": "0",
+                  "SHOW_ALPHA": 0
                 }
               },
               {
@@ -125,7 +127,8 @@
                   "ID": "9612b2787c024c9e86a8c342577c5fbb",
                   "opacity": 1,
                   "LOAD_TYPE": "1",
-                  "EDIT_ATTRIBUTE": "0"
+                  "EDIT_ATTRIBUTE": "0",
+                  "SHOW_ALPHA": 0
                 }
               },
               {
@@ -165,7 +168,8 @@
                   "ID": "9612b2787c024c9e86a8c342577c5fbb",
                   "opacity": 1,
                   "LOAD_TYPE": "1",
-                  "EDIT_ATTRIBUTE": "0"
+                  "EDIT_ATTRIBUTE": "0",
+                  "SHOW_ALPHA": 0
                 }
               }
             ],
@@ -177,7 +181,7 @@
             "id": "59f4eab881914fb391cc6b22f304c66c",
             "isParent": false,
             "isload": false,
-            "name": "标绘",
+            "name": "ArcGis",
             "noR": false,
             "nocheck": false,
             "nodes": [],
@@ -227,7 +231,8 @@
                   "ID": "99247ad5c1d04afc80351c3bdb44df1f",
                   "opacity": 1,
                   "LOAD_TYPE": "1",
-                  "EDIT_ATTRIBUTE": "1"
+                  "EDIT_ATTRIBUTE": "1",
+                  "SHOW_ALPHA": 0
                 }
               },
               {
@@ -267,7 +272,8 @@
                   "ID": "f524196f9e0d47d982938145506275c8",
                   "opacity": 1,
                   "LOAD_TYPE": "1",
-                  "EDIT_ATTRIBUTE": "1"
+                  "EDIT_ATTRIBUTE": "1",
+                  "SHOW_ALPHA": 0
                 }
               }
             ],
@@ -298,7 +304,7 @@
         "id": "c88272a5998e40ac85a0430396f48d1b",
         "isParent": false,
         "isload": false,
-        "name": "项目监管",
+        "name": "矢量数据",
         "noR": false,
         "nocheck": false,
         "nodes": [],
@@ -317,7 +323,7 @@
     "id": "f9fa3116559f4011a88180c245a0b670",
     "isParent": false,
     "isload": false,
-    "name": "水保2",
+    "name": "图层",
     "noR": false,
     "nocheck": false,
     "nodes": [],

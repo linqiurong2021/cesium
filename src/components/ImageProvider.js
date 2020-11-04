@@ -44,10 +44,12 @@ class ImageProvider {
   }
   // WMS
   static WebMapService(item) {
+    // console.log(,'alpha')
+    // const alpha = item.alpha * 0.1 / 0.1
     return new Cesium.WebMapServiceImageryProvider({
       url: item.url,
       layers: item.layers,
-      defaultAlpha: item.alpha,
+      defaultAlpha: 0.5 // 无效 未知为什么
     });
   }
 }
