@@ -104,11 +104,11 @@ export default {
       //
       let imageProvider = null
       switch(item.type) {
-        case 'WebMapTile' : imageProvider = ImageProvider.WebMapTileService(item) ;break;
+        case '4' : imageProvider = ImageProvider.WebMapTileService(item) ;break;
         case '3' : imageProvider = ImageProvider.WebMapService(item) ; break;
-        case 'OpenStreet' : imageProvider = ImageProvider.OpenStreetMap(item) ;break;
-        case 'UrlTemplate' : imageProvider = ImageProvider.UrlTemplate(item) ;break;
-        case 'ArcGisMapServer' : imageProvider = ImageProvider.ArcGisMapServer(item) ; break;
+        case '7' : imageProvider = ImageProvider.OpenStreetMap(item) ;break;
+        case '6' : imageProvider = ImageProvider.UrlTemplate(item) ;break;
+        case '5' : imageProvider = ImageProvider.ArcGisMapServer(item) ; break;
       }
       return imageProvider
     },
