@@ -17,11 +17,13 @@ export default {
     'TerrainProvider': ()=> import('./demo/TerrainProvider'),
     'ArcgisMapServer': ()=> import('./demo/ArcgisMapServer'), // 加载MapServer下的所有图层
     'ArcgisMapService': ()=> import('./demo/ArcgisMapService'), // 可加载某个图层 需要WMS支持
-    'Clustering': ()=> import('./demo/Clustering'),
+    'KML_Clustering': ()=> import('./demo/KML_Clustering'),
+    'CZML': ()=> import('./demo/CZML'),
+    'KMZ': ()=> import('./demo/KMZ'),
   },
   data() {
     return {
-      componentName: 'Clustering'
+      componentName: 'KMZ'
     }
   },
 };
