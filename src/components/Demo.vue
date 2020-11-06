@@ -20,10 +20,12 @@ export default {
     'KML_Clustering': ()=> import('./demo/KML_Clustering'),
     'CZML': ()=> import('./demo/CZML'),
     'KMZ': ()=> import('./demo/KMZ'),
+    'LoadTileJSON': ()=> import('./demo/LoadTileJSON'),
+    'LoadTileJSON2': ()=> import('./demo/LoadTileJSON2'),
   },
   data() {
     return {
-      componentName: 'KMZ'
+      componentName: 'LoadTileJSON2'
     }
   },
 };
