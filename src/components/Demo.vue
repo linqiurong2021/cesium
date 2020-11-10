@@ -22,10 +22,11 @@ export default {
     'KMZ': ()=> import('./demo/KMZ'),
     'LoadTileJSON': ()=> import('./demo/LoadTileJSON'),
     'LoadTileJSON2': ()=> import('./demo/LoadTileJSON2'),
+     'Load3DTiles': ()=> import('./demo/Load3DTiles'),
   },
   data() {
     return {
-      componentName: 'LoadTileJSON2'
+      componentName: 'Load3DTiles'
     }
   },
 };

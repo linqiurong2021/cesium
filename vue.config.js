@@ -32,7 +32,15 @@ module.exports = {
         pathRewrite: {
           '^/dev_arcgis': '/arcgis' // 重写rewrite
         }
-      }
+      },
+      // '/company_server': {
+      //   target: 'http://192.168.110.201:8088',
+      //   ws: true,
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/company_server': '/company_server' // 重写rewrite
+      //   }
+      // }
     }
   },
   configureWebpack: {
