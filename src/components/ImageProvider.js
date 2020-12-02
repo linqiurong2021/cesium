@@ -49,6 +49,7 @@ class ImageProvider {
     return new Cesium.WebMapServiceImageryProvider({
       url: item.url,
       layers: item.layers,
+      IsWebMercatorTilingScheme:true,
       defaultAlpha: 0.5 // 无效 未知为什么
     });
   }
